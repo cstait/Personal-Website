@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Convertors
+</title>
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+<style>
+
+button{
+    background-color: black;
+}
+</style>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="converterApp" ng-controller="converterCtrl">
+
+<p>Decimal to Hex:</p>
+<p>Name: <input id="DH" type="text" ng-model="dhVar"></p>
+<p>Hex: {{dhResult()}}</p>
+
+<p>Decimal to Binary:</p>
+<p>Name: <input id="DB" type="text" ng-model="dbVar"></p>
+<p>Binary: {{ dbResult() }}</p>
+
+<p>Hex to Decimal:</p>
+<p>Name: <input id="HD" type="text" ng-model="hdVar"></p>
+<p>Decimal: {{ hdResult() }}</p>
+
+<p>Hex to Binary:</p>
+<p>Name: <input id="HB" type="text" ng-model="hbVar"></p>
+<p>Binary: {{ hbResult() }}</p>
+
+<p>Binary to Decimal:</p>
+<p>Name: <input id="BD" type="text" ng-model="bdVar"></p>
+<p>Decimal: {{ bdResult() }}</p>
+
+<p>Binary to Hex:</p>
+<p>Name: <input id="BH" type="text" ng-model="bhVar"></p>
+<p>Hex: {{ bhResult() }}</p>
+
+</div>
+<script>
+var app = angular.module('converterApp', []);
+app.controller('converterCtrl', function($scope) {
+    $scope.dhResult = function() {
+    	$temp = $scope.dhVar;
+        return (+$temp).toString(16);
+    };
+    $scope.dbResult = function() {
+        $temp = $scope.dbVar;
+        return (+$temp).toString(2);
+    };
+    $scope.hdResult = function() {
+        $temp = $scope.hdVar;
+        return parseInt($temp, 16);
+    };
+    $scope.hbResult = function() {
+        $temp = $scope.hbVar;
+        return parseInt($temp, 16).toString(2);
+    };
+    $scope.bdResult = function() {
+        $temp = $scope.bdVar;
+        return parseInt($temp, 2).toString(10);
+    };
+    $scope.bhResult = function() {
+        $temp = $scope.bhVar;
+        return parseInt($temp, 2).toString(16);
+    };
+});
+
+
+</script>
+
+   <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+
+</body>
+</html>
